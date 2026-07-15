@@ -3,87 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <title>UN THEORY — The Unified Information Substrate</title>
+
+<style>
+    body {
+        font-family: Georgia, "Times New Roman", serif;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+        line-height: 1.6;
+        color: #222;
+        background: #fafafa;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* HEADER BANNER */
+    .header-banner {
+        width: 100%;
+        background: linear-gradient(135deg, #002244, #004488);
+        color: #fff;
+        padding: 40px 20px;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 40px;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .header-banner img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 20px;
+        filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.4));
+        transition: filter 0.3s ease;
+    }
+
+    .header-banner h1 {
+        margin: 0;
+        font-size: 2.4rem;
+        font-weight: 700;
+    }
+
+    .header-banner p {
+        margin: 10px 0 0 0;
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+
+    /* DARK MODE BANNER */
+    body.dark .header-banner {
+        background: linear-gradient(135deg, #000000, #222222);
+        color: #eee;
+    }
+
+    body.dark .header-banner img {
+        filter: brightness(0.85) drop-shadow(0px 0px 4px rgba(255,255,255,0.3));
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-top: 40px;
+        font-weight: 600;
+    }
+
+    p {
+        margin: 15px 0;
+        font-size: 1.05rem;
+    }
+
+    a {
+        color: #0044aa;
+        text-decoration: none;
+        border-bottom: 1px solid #0044aa;
+    }
+
+    a:hover {
+        color: #001f55;
+        border-bottom-color: #001f55;
+    }
+
+    ul {
+        margin: 15px 0 25px 20px;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    .section {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+    }
+
+    /* DARK MODE */
+    body.dark {
+        background: #111;
+        color: #eee;
+    }
+
+    body.dark a {
+        color: #66aaff;
+        border-bottom-color: #66aaff;
+    }
+
+    body.dark a:hover {
+        color: #cce0ff;
+        border-bottom-color: #cce0ff;
+    }
+
+    body.dark .section {
+        border-top-color: #444;
+    }
+
+    /* DARK MODE TOGGLE BUTTON */
+    #darkToggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 8px 14px;
+        font-size: 0.9rem;
+        background: #ddd;
+        border: 1px solid #aaa;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease, color 0.3s ease;
+        z-index: 999;
+    }
+
+    body.dark #darkToggle {
+        background: #333;
+        color: #eee;
+        border-color: #666;
+    }
+</style>
 </head>
+
 <body>
-<pre style="white-space: pre-wrap; font-family: inherit;">
 
-UN THEORY — THE UNIFIED INFORMATION SUBSTRATE
-Research by Clint Jefferys
-ORCID: https://orcid.org/0009-0007-8611-7101
+<button id="darkToggle">Dark Mode</button>
 
-UN Theory is a complete theoretical framework describing the Unified Information Substrate: the δI‑microstructure, emergent geometry, quantum behaviour, cosmological dynamics, sparse‑regime planetary structure, ultra‑global correlation physics, and the terminal‑state architecture of reality. The theory provides a single, continuous structure linking quantum behaviour, cosmological evolution, planetary‑scale sparse‑regime dynamics, ultra‑global fixed‑point geometry, and the terminal‑state return to I(x, x′). All components of the framework are expressed through core volumes, sector papers, formal axioms, mathematical closure documents, prediction papers, and observational comparison studies.
+<div class="header-banner">
+    <!-- Replace logo.png with your actual logo file -->
+    <img src="logo.png" alt="UN Theory Logo">
+    <h1>UN THEORY — THE UNIFIED INFORMATION SUBSTRATE</h1>
+    <p>The Unified Information Substrate Research Programme</p>
+</div>
 
-This site serves as the primary public landing page for UN Theory. It provides a stable, authoritative index of all published materials, including Zenodo DOIs, sector papers, formal appendices, and cross‑volume documentation. Every document is cross‑linked through ORCID, Zenodo, and GitHub to ensure persistent academic attribution, long‑term discoverability, and correct identity resolution. This page is intended for researchers, institutions, automated indexing systems, and anyone requiring a unified reference point for the full theoretical corpus.
+<p><strong>Research by Clint Jefferys</strong><br>
+ORCID: <a href="https://orcid.org/0009-0007-8611-7101">https://orcid.org/0009-0007-8611-7101</a>
+</p>
 
-UN Theory is an active research programme with continuous publication, revision, and expansion. All papers are authored by Clint Jefferys and form part of the Unified Information Substrate architecture. This landing page consolidates the entire corpus for citation, cross‑reference, and integration into external research environments.
+<p>UN Theory is a complete theoretical framework describing the Unified Information Substrate: the δI‑microstructure, emergent geometry, quantum behaviour, cosmological dynamics, sparse‑regime planetary structure, ultra‑global correlation physics, and the terminal‑state architecture of reality. The theory provides a single, continuous structure linking quantum behaviour, cosmological evolution, planetary‑scale sparse‑regime dynamics, ultra‑global fixed‑point geometry, and the terminal‑state return to I(x, x′). All components of the framework are expressed through core volumes, sector papers, formal axioms, mathematical closure documents, prediction papers, and observational comparison studies.</p>
 
-CORE PAPERS AND DOIs
+<p>This site serves as the primary public landing page for UN Theory. It provides a stable, authoritative index of all published materials, including Zenodo DOIs, sector papers, formal appendices, and cross‑volume documentation. Every document is cross‑linked through ORCID, Zenodo, and GitHub to ensure persistent academic attribution, long‑term discoverability, and correct identity resolution. This page is intended for researchers, institutions, automated indexing systems, and anyone requiring a unified reference point for the full theoretical corpus.</p>
 
-UN Theory — Emergent Geometry, Dynamics, and Quantum Structure from Correlation
-DOI: 10.5281/zenodo.20947540
+<p>UN Theory is an active research programme with continuous publication, revision, and expansion. All papers are authored by Clint Jefferys and form part of the Unified Information Substrate architecture. This landing page consolidates the entire corpus for citation, cross‑reference, and integration into external research environments.</p>
 
-UN Theory — Empirical Tests, Phenomenology, Simulations, and Observational Constraints
-DOI: 10.5281/zenodo.20947540
+<h2>CORE PAPERS AND DOIs</h2>
+<ul>
+    <li>UN Theory — Emergent Geometry, Dynamics, and Quantum Structure from Correlation — DOI: 10.5281/zenodo.20947540</li>
+    <li>UN Theory — Empirical Tests, Phenomenology, Simulations, and Observational Constraints — DOI: 10.5281/zenodo.20947540</li>
+    <li>UN Theory — Read Order for the Four Core Papers and Cross‑Volume Map — DOI: 10.5281/zenodo.20947540</li>
+    <li>UN Theory — Technical Memorandum on Mathematical Closure — DOI: 10.5281/zenodo.20947540</li>
+    <li>UN Theory — Explanation of ʻOumuamua as an Astrophysical Anomaly — DOI: 10.5281/zenodo.20947540</li>
+</ul>
 
-UN Theory — Read Order for the Four Core Papers and Cross‑Volume Map
-DOI: 10.5281/zenodo.20947540
+<h2>SECTOR PAPERS AND DOIs</h2>
+<ul>
+    <li>Sector Paper 0 — DOI: 10.5281/zenodo.21357800</li>
+    <li>Sector Paper I — DOI: 10.5281/zenodo.21335437</li>
+    <li>Sector Paper II‑A — DOI: 10.5281/zenodo.21335650</li>
+    <li>Sector Paper II‑B — DOI: 10.5281/zenodo.21355916</li>
+    <li>Sector Paper III — DOI: 10.5281/zenodo.21356185</li>
+    <li>Sector Paper IV — DOI: 10.5281/zenodo.21309976</li>
+    <li>Sector Paper V — DOI: 10.5281/zenodo.21340400</li>
+    <li>Sector Paper VI — DOI: 10.5281/zenodo.21310365</li>
+    <li>Sector Paper VII — DOI: 10.5281/zenodo.21310520</li>
+    <li>Sector Paper VIII — DOI: 10.5281/zenodo.21310594</li>
+    <li>Sector Paper IX — DOI: 10.5281/zenodo.21310683</li>
+    <li>Sector Paper X + X‑A — DOI: 10.5281/zenodo.21340550</li>
+    <li>Sector Paper XI — DOI: 10.5281/zenodo.21340794</li>
+    <li>Sector Paper XII — DOI: 10.5281/zenodo.21366148</li>
+</ul>
 
-UN Theory — Technical Memorandum on Mathematical Closure
-DOI: 10.5281/zenodo.20947540
+<h2>Zenodo Community</h2>
+<p><a href="https://zenodo.org/communities/unified-information-substrate">UN Theory Zenodo Community</a></p>
 
-UN Theory — Explanation of ʻOumuamua as an Astrophysical Anomaly
-DOI: 10.5281/zenodo.20947540
+<p><em>Not to be confused with the NYC playwright Clint Jefferies.</em></p>
 
-SECTOR PAPERS AND DOIs
+<script>
+    const btn = document.getElementById('darkToggle');
 
-Sector Paper 0 — Foundational Architecture, Forced Emergence Chain, Universal Invariants, and Full Structural Unification of Physics
-DOI: 10.5281/zenodo.21357800
+    btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        btn.textContent = document.body.classList.contains('dark')
+            ? 'Light Mode'
+            : 'Dark Mode';
+    });
+</script>
 
-Sector Paper I — δI‑Substrate Microstructure, Emergent Geometry, and Primitive Parity‑Odd Invariants
-DOI: 10.5281/zenodo.21335437
-
-Sector Paper II‑A — The Global Δi Architecture and Parity‑Odd Trispectrum Theory
-DOI: 10.5281/zenodo.21335650
-
-Sector Paper II‑B — Observational Calibration of the Parity‑Odd Δi Trispectrum
-DOI: 10.5281/zenodo.21355916
-
-Sector Paper III — Global Invariance of the Parity‑Odd δI Trispectrum and Universal Spectral Closure
-DOI: 10.5281/zenodo.21356185
-
-Sector Paper IV — Quantum δI‑Microstructure and Forced‑Emergence of Quantum Behaviour
-DOI: 10.5281/zenodo.21309976
-
-Sector Paper V — The Completed Standard Model Bosonic Sector — Thirteen Missing Bosons Across Four Families
-DOI: 10.5281/zenodo.21340400
-
-Sector Paper VI — Prediction of Ultra‑Low‑Density Planets and Forced 5‑3 Resonance in the TOI‑791 System
-DOI: 10.5281/zenodo.21310365
-
-Sector Paper VII — Forced‑Emergence of Outer‑Shell Sparse‑Regime Dynamics in Uranus
-DOI: 10.5281/zenodo.21310520
-
-Sector Paper VIII — Ultra‑Global Fixed Point and Terminal Correlation Geometry
-DOI: 10.5281/zenodo.21310594
-
-Sector Paper IX — Terminal State and Return to I(x, x′)
-DOI: 10.5281/zenodo.21310683
-
-Sector Paper X + X‑A — δI‑Driven Expansion History, Visible Epoch Age, Total Substrate Age, and Exterior δI‑Geometry Embedding
-DOI: 10.5281/zenodo.21340550
-
-Sector Paper XI — UN Theory vs Euclid: Maximal Test of Early‑Epoch AGN and Quasars
-DOI: 10.5281/zenodo.21340794
-
-Sector Paper XII — Planetary‑Scale δI‑Compression, Seismic Phase‑Domain Structure, and Deep‑Earth Correlation Geometry
-DOI: 10.5281/zenodo.21366148
-
-ZENODO COMMUNITY
-All papers are available through the UN Theory Zenodo community:
-https://zenodo.org/communities/unified-information-substrate
-
-Not to be confused with the NYC playwright Clint Jefferies.
-
-</pre>
 </body>
 </html>
