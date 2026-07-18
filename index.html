@@ -41,14 +41,18 @@
 
     /* HEADER BANNER */
     .header-banner {
-        width: 100%;
-        background: linear-gradient(135deg, #002244, #004488);
-        color: #fff;
-        padding: 40px 20px;
-        text-align: center;
-        border-radius: 8px;
-        margin-bottom: 40px;
-        transition: background 0.3s ease, color 0.3s ease;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.35); /* semi-transparent */
+    backdrop-filter: blur(4px);      /* softens background behind banner */
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10; /* keeps banner above background image */
+}
+
     }
 
     .header-banner img {
