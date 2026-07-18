@@ -75,8 +75,11 @@
 
     /* DARK MODE BANNER */
     body.dark .header-banner {
-        background: linear-gradient(135deg, #000000, #222222);
-        color: #eee;
+    background: rgba(0, 0, 0, 0.45); /* semi-transparent dark mode */
+    backdrop-filter: blur(4px);
+    color: #eee;
+}
+
     }
 
     body.dark .header-banner img {
