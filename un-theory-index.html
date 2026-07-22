@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UN Theory — Full Corpus Index</title>
+<meta name="description" content="Complete index of all UN Theory documents including volumes, sector papers, prediction papers, axioms, equation index, and Hamiltonian stack.">
+
+<link rel="stylesheet" href="un-theory.css">
+
+<style>
+    .search-box, .dropdown-box {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .button-row {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .button-row a, .button-row button {
+        background:#333;
+        color:#fff;
+        padding:10px 20px;
+        text-decoration:none;
+        border:none;
+        border-radius:6px;
+        font-weight:bold;
+        cursor:pointer;
+    }
+    #openZenodo {
+        background:#0066cc;
+    }
+    .option-public {
+        color:#0a0;
+        font-weight:bold;
+    }
+    .option-restricted {
+        color:#a00;
+        font-weight:bold;
+    }
+    .option-label {
+        font-weight:bold;
+        background:#ddd;
+        color:#000;
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="logo-band">
+    <img src="Copilot_20260701_182519.png" alt="UN Theory Logo">
+</div>
+
+<!-- NAVIGATION -->
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="un-theory-overview.html">Overview</a></li>
+<li><a href="un-theory-comparison.html">Comparison</a></li>
+<li><a href="un-theory-faq.html">FAQ</a></li>
+<li><a href="unified-theory-of-everything.html">Unified Theory</a></li>
+<li><a href="un-theory-index.html" class="active">Corpus Index</a></li>
+<li><a href="https://zenodo.org/communities/unified-information-substrate">Zenodo</a></li>
+<li><a href="https://orcid.org/0009-0007-8611-7101">ORCID</a></li>
+</ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main style="max-width:900px; margin:40px auto; padding:20px;">
+
+<h1>UN Theory — Full Corpus Index</h1>
+
+<p>
+This interactive index provides access to all UN Theory documents, including core volumes, sector papers, prediction papers, mathematical closure documents, and supporting research. All documents are authored by Clint Jefferys.
+</p>
+
+<h2>Search the UN Theory Corpus</h2>
+
+<input type="text" id="searchBox" class="search-box" placeholder="DOI link appears here when selected…">
+
+<select id="documentList" class="dropdown-box" size="14"></select>
+
+<div class="button-row">
+    <a id="openZenodo" href="#" target="_blank">Open on Zenodo</a>
+    <button id="copyDOI">Copy DOI</button>
+    <button id="copyCitation">Copy Full Citation</button>
+    <a href="un-theory-overview.html">UN Theory Overview</a>
+</div>
+
+<script>
+// --- PUBLIC DOCUMENTS ---
+const publicDocs = [
+    { title: "UN THEORY — Emergent Geometry, Dynamics, and Quantum Structure from Correlation", doi: "10.5281/zenodo.20947540" },
+    { title: "UN THEORY — Empirical Tests, Phenomenology, Simulations, and Observational Constraints", doi: "10.5281/zenodo.20947540" },
+    { title: "UN THEORY — Read Order for the Four Core Papers and Cross Volume Map", doi: "10.5281/zenodo.20947540" },
+    { title: "UN THEORY — Technical Memorandum on Mathematical Closure", doi: "10.5281/zenodo.20947540" },
+    { title: "UN THEORY — Explanation of ʻOumuamua as an Astrophysical Anomaly", doi: "10.5281/zenodo.20947540" },
+
+    { title: "Sector Paper 0 — Foundational Architecture", doi: "10.5281/zenodo.21357800" },
+    { title: "Sector Paper I — δI‑Substrate Microstructure", doi: "10.5281/zenodo.21335437" },
+    { title: "Sector Paper II‑A — Parity‑Odd Trispectrum Theory", doi: "10.5281/zenodo.21335650" },
+    { title: "Sector Paper II‑B — Observational Calibration", doi: "10.5281/zenodo.21355916" },
+    { title: "Sector Paper III — Universal Spectral Closure", doi: "10.5281/zenodo.21356185" },
+    { title: "Sector Paper IV — Quantum δI‑Microstructure", doi: "10.5281/zenodo.21309976" },
+    { title: "Sector Paper V — Completed Standard Model Bosonic Sector", doi: "10.5281/zenodo.21340400" },
+    { title: "Sector Paper V‑A — Detection & Measurement Framework", doi: "10.5281/zenodo.21442721" },
+    { title: "Sector Paper VI — TOI‑791 Sparse‑Regime Planets", doi: "10.5281/zenodo.21310365" },
+    { title: "Sector Paper VII — Uranus Sparse‑Regime Dynamics", doi: "10.5281/zenodo.21310520" },
+    { title: "Sector Paper VIII — Ultra‑Global Fixed Point", doi: "10.5281/zenodo.21310594" },
+    { title: "Sector Paper IX — Terminal State & Return to I(x,x')", doi: "10.5281/zenodo.21310683" },
+    { title: "Sector Paper X + X‑A — δI‑Driven Expansion History", doi: "10.5281/zenodo.21340550" },
+    { title: "Sector Paper XI — UN Theory vs Euclid", doi: "10.5281/zenodo.21340794" },
+    { title: "Sector Paper XII — Deep‑Earth δI‑Compression", doi: "10.5281/zenodo.21366148" },
+    { title: "Sector Paper XIII — Primitive Correlation Object", doi: "10.5281/zenodo.21397985" },
+    { title: "Sector Paper XIIII — Tri‑Peak Correlation Object", doi: "10.5281/zenodo.21428885" },
+    { title: "Sector Paper XV — Unified Theory of Everything", doi: "10.5281/zenodo.21428951" },
+
+    { title: "Machinery Paper XV — Hamiltonian Machinery", doi: "10.5281/zenodo.21476252" },
+    { title: "UN THEORY — Complete Corpus Summary", doi: "10.5281/zenodo.21476252" },
+    { title: "UN THEORY — Full Capability Statement", doi: "10.5281/zenodo.21476252" },
+    { title: "UN THEORY — Full Release Declaration", doi: "10.5281/zenodo.21476252" },
+    { title: "UN‑MACH‑XV‑SUPP‑1 — Referee‑Friendly Summary", doi: "10.5281/zenodo.21476252" },
+
+    { title: "Exterior δI‑Global Manifold (Vol 1)", doi: "10.5281/zenodo.21015932" },
+    { title: "Necessity of the δI‑Substrate (Vol 0)", doi: "10.5281/zenodo.20997193" }
+];
+
+// --- RESTRICTED DOCUMENTS ---
+const restrictedDocs = [
+    { title: "Formal Axioms, Canonical Equation Index, Full Equation Body", doi: "10.5281/zenodo.21193697" },
+    { title: "Formal Axioms Paper — Minimal Foundation", doi: "10.5281/zenodo.21193697" },
+    { title: "Full Unique Equation Index", doi: "10.5281/zenodo.21193697" },
+    { title: "Full Equation Index", doi: "10.5281/zenodo.21193697" },
+    { title: "Read Order — Restricted Draft", doi: "10.5281/zenodo.21159437" },
+    { title: "Formalisation & Correspondence Layer", doi: "10.5281/zenodo.21159163" },
+    { title: "Information Thermodynamics of the Universe (Vol 4)", doi: "10.5281/zenodo.21070888" },
+    { title: "Global Parity‑Odd δI Architecture", doi: "10.5281/zenodo.21158519" },
+    { title: "Formal Substrate & Physical Correspondence", doi: "10.5281/zenodo.21071670" },
+    { title: "Meta‑Substrate & Terminal State (Vol 7)", doi: "10.5281/zenodo.21071513" },
+    { title: "Emergent‑World Architecture (Vol 6)", doi: "10.5281/zenodo.21071314" },
+    { title: "Operational δI Architecture (Vol 5)", doi: "10.5281/zenodo.21071062" },
+    { title: "Exterior δI‑Global Manifold (Vol 3)", doi: "10.5281/zenodo.21070610" },
+    { title: "Cosmological Dynamics (Vol 2)", doi: "10.5281/zenodo.21070027" },
+    { title: "Axiomatic Foundation & Forced‑Emergence Chain", doi: "10.5281/zenodo.21018985" }
+];
+
+// --- POPULATE DROPDOWN ---
+const list = document.getElementById("documentList");
+
+function populateList() {
+    list.innerHTML = "";
+
+    // Public label
+    let optLabelPub = document.createElement("option");
+    optLabelPub.textContent = "--- Public Documents ---";
+    optLabelPub.className = "option-label";
+    list.appendChild(optLabelPub);
+
+    publicDocs.forEach(doc => {
+        let opt = document.createElement("option");
+        opt.textContent = "🔓 " + doc.title;
+        opt.dataset.doi = doc.doi;
+        opt.className = "option-public";
+        list.appendChild(opt);
+    });
+
+    // Restricted label
+    let optLabelRes = document.createElement("option");
+    optLabelRes.textContent = "--- Restricted Documents ---";
+    optLabelRes.className = "option-label";
+    list.appendChild(optLabelRes);
+
+    restrictedDocs.forEach(doc => {
+        let opt = document.createElement("option");
+        opt.textContent = "🔒 " + doc.title;
+        opt.dataset.doi = doc.doi;
+        opt.className = "option-restricted";
+        list.appendChild(opt);
+    });
+}
+
+populateList();
+
+// --- When a document is selected ---
+document.getElementById("documentList").addEventListener("change", function() {
+    const opt = this.options[this.selectedIndex];
+    const doi = opt.dataset.doi;
+
+    // Put DOI link in search box
+    document.getElementById("searchBox").value = "https://doi.org/" + doi;
+
+    // Update Zenodo button link
+    document.getElementById("openZenodo").href = "https://doi.org/" + doi;
+});
+
+// --- Copy DOI ---
+document.getElementById("copyDOI").onclick = () => {
+    const opt = list.options[list.selectedIndex];
+    navigator.clipboard.writeText(opt.dataset.doi);
+};
+
+// --- Copy Citation ---
+document.getElementById("copyCitation").onclick = () => {
+    const opt = list.options[list.selectedIndex];
+    const citation = `${opt.textContent.replace("🔓 ","").replace("🔒 ","")}, DOI: ${opt.dataset.doi}`;
+    navigator.clipboard.writeText(citation);
+};
+
+</script>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+© 2026 UN Theory — All Rights Reserved
+</footer>
+
+</body>
+</html>
