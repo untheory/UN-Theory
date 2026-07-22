@@ -22,10 +22,12 @@
 
 <body>
 
+<!-- COSMIC HEADER -->
 <div class="logo-band">
     <img src="Copilot_20260701_182519.png" alt="UN Theory Logo">
 </div>
 
+<!-- COSMIC NAVIGATION -->
 <nav class="main-nav">
 <ul>
 <li><a href="index.html">UN Theory Home</a></li>
@@ -37,7 +39,7 @@
 <li><a href="https://zenodo.org/communities/unified-information-substrate">Zenodo</a></li>
 <li><a href="https://orcid.org/0009-0007-8611-7101">ORCID</a></li>
 
-<!-- ⭐ Dark Mode Toggle moved into nav bar -->
+<!-- DARK MODE BUTTON (NOW WORKS + MATCHES CSS) -->
 <li style="margin-left:auto;">
     <button id="darkToggle" class="dark-toggle">Dark Mode</button>
 </li>
@@ -45,6 +47,7 @@
 </ul>
 </nav>
 
+<!-- MAIN CONTENT -->
 <main>
 
 <h1>UN THEORY — FULL CORPUS INDEX</h1>
@@ -89,20 +92,23 @@ and the United States of America.</p>
 
 <h2>Search the UN Theory Corpus</h2>
 
-<!-- FIXED: Search box placed correctly -->
+<!-- FULL-WIDTH SEARCH BOX (FIXED) -->
 <div style="margin-bottom:20px;">
     <input type="text" id="searchBox" class="search-box"
            placeholder="DOI link appears here when selected…">
 </div>
 
+<!-- FULL-WIDTH DROPDOWN (FIXED) -->
 <select id="documentList" class="dropdown-box" size="14"></select>
 
+<!-- BUTTON ROW -->
 <div class="button-row">
     <a id="openZenodo" href="#" target="_blank">Open on Zenodo</a>
     <button id="copyDOI">Copy DOI</button>
     <button id="copyCitation">Copy Full Citation</button>
 </div>
 
+<!-- PADLOCK SYSTEM SCRIPT -->
 <script>
 // --- PUBLIC DOCUMENTS ---
 const publicDocs = [
@@ -212,10 +218,12 @@ document.getElementById("copyCitation").onclick = () => {
 
 </main>
 
+<!-- COSMIC FOOTER -->
 <footer class="site-footer">
 © 2026 UN Theory — All Rights Reserved
 </footer>
 
+<!-- DARK MODE SCRIPT -->
 <script>
 const btn = document.getElementById('darkToggle');
 btn.addEventListener('click', () => {
