@@ -1,5 +1,5 @@
 /* ============================================================
-   UN THEORY — COSMIC SITE CSS (FINAL REGENERATED VERSION)
+   UN THEORY — COSMIC SITE CSS (NO DARK MODE, FIXED HEADER)
    ============================================================ */
 
 /* Base body + cosmic background */
@@ -12,15 +12,6 @@ body {
     background-attachment: fixed;
     color: #fff;
     line-height: 1.6;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* Dark mode — KEEP cosmic background */
-body.dark {
-    background-image: url('copilot_image_1782117868506.jpeg') !important;
-    background-size: cover !important;
-    background-attachment: fixed !important;
-    color: #eee;
 }
 
 /* ============================================================
@@ -29,41 +20,41 @@ body.dark {
 
 .logo-band {
     width: 100%;
-    height: 140px; /* FIXED HEIGHT */
-    background: #111; /* SOLID DARK GREY */
+    height: 160px; /* TALLER FIXED HEADER */
+    background: #222; /* SOLID DARK GREY */
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 2px solid #00aaff;
+    border-bottom: 3px solid #00aaff;
     position: sticky;
     top: 0;
     z-index: 3000;
 }
 
 .logo-band img {
-    width: 160px;
+    width: 180px;
     height: auto;
 }
 
 /* ============================================================
-   NAVIGATION BAR — STRONGER, SOLID, NO SLIPPING
+   NAVIGATION BAR — SOLID, STRONG, NO SLIPPING
    ============================================================ */
 
 .main-nav {
-    background: #000; /* SOLID BLACK */
-    border-bottom: 2px solid #00aaff;
+    background: #000;
+    border-bottom: 3px solid #00aaff;
     position: sticky;
-    top: 140px; /* MATCHES HEADER HEIGHT */
+    top: 160px; /* MATCHES HEADER HEIGHT */
     z-index: 2500;
 }
 
 .main-nav ul {
     list-style: none;
     margin: 0;
-    padding: 12px 20px;
+    padding: 14px 20px;
     display: flex;
-    gap: 22px;
+    gap: 24px;
     align-items: center;
 }
 
@@ -71,7 +62,7 @@ body.dark {
     color: #00ccff;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 }
 
 .main-nav a:hover {
@@ -83,36 +74,16 @@ body.dark {
     border-bottom: 2px solid #00aaff;
 }
 
-/* Dark mode button */
-.dark-toggle {
-    background: #333;
-    color: #fff;
-    padding: 10px 18px;
-    border: 1px solid #00aaff;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-body.dark .dark-toggle {
-    background: #ddd;
-    color: #000;
-    border-color: #00aaff;
-}
-
 /* ============================================================
-   MAIN CONTENT — STRONGER CONTRAST, READABLE
+   MAIN CONTENT — STRONG CONTRAST
    ============================================================ */
 
 main {
     max-width: 900px;
-    margin: 60px auto 160px auto; /* EXTRA BOTTOM SPACE FOR FIXED FOOTER */
+    margin: 60px auto 160px auto; /* SPACE FOR FIXED FOOTER */
     padding: 30px;
-    background: rgba(0,0,0,0.70);
+    background: rgba(0,0,0,0.75);
     border-radius: 12px;
-    color: #fff;
-    position: relative;
-    z-index: 1;
 }
 
 /* ============================================================
@@ -143,13 +114,13 @@ main {
 }
 
 /* ============================================================
-   FOOTER — PINNED TO BOTTOM WITH SOLID BAND
+   FOOTER — PINNED TO BOTTOM
    ============================================================ */
 
 .site-footer {
     width: 100%;
     background: rgba(0,0,0,0.85);
-    border-top: 2px solid #00aaff;
+    border-top: 3px solid #00aaff;
     padding: 20px;
     text-align: center;
     font-size: 0.9rem;
