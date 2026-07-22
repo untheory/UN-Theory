@@ -1,3 +1,7 @@
+/* ============================================================
+   UN THEORY — COSMIC SITE CSS (FIXED HEADER + FIXED NAV BAR)
+   ============================================================ */
+
 /* Base body + cosmic background */
 body {
     margin: 0;
@@ -9,10 +13,14 @@ body {
     color: #fff;
     line-height: 1.6;
 
-    padding-top: 260px; /* header + nav */
+    /* SPACE FOR FIXED HEADER + NAV */
+    padding-top: 260px; /* header (200px) + nav (60px) */
 }
 
-/* HEADER — FIXED */
+/* ============================================================
+   HEADER / LOGO BAND — FIXED
+   ============================================================ */
+
 .logo-band {
     width: 100%;
     height: 200px;
@@ -34,13 +42,16 @@ body {
     height: auto;
 }
 
-/* NAV BAR — FIXED */
+/* ============================================================
+   NAVIGATION BAR — FIXED UNDER HEADER
+   ============================================================ */
+
 .main-nav {
     background: #000;
     border-bottom: 3px solid #00aaff;
 
     position: fixed;   /* FIXED */
-    top: 200px;        /* sits under header */
+    top: 200px;        /* sits directly under header */
     left: 0;
     width: 100%;
     z-index: 2500;
@@ -71,7 +82,10 @@ body {
     border-bottom: 2px solid #00aaff;
 }
 
-/* MAIN CONTENT */
+/* ============================================================
+   MAIN CONTENT — STRONG CONTRAST, READABLE
+   ============================================================ */
+
 main {
     max-width: 900px;
     margin: 0 auto 160px auto;
@@ -80,7 +94,10 @@ main {
     border-radius: 12px;
 }
 
-/* FOOTER — FIXED */
+/* ============================================================
+   FOOTER — PINNED TO BOTTOM
+   ============================================================ */
+
 .site-footer {
     width: 100%;
     background: rgba(0,0,0,0.85);
