@@ -4,9 +4,55 @@
 <meta charset="UTF-8">
 <title>UN Theory vs Other Unified Physics Frameworks</title>
 <meta name="description" content="Comparison of UN Theory with string theory, loop quantum gravity, and grand unified theories.">
+
+<!-- Correct CSS path -->
+<link rel="stylesheet" href="un-theory.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "UN Theory vs Other Unified Physics Frameworks",
+  "url": "https://untheory.github.io/UN-Theory/un-theory-comparison.html",
+  "description": "Comparison of UN Theory with string theory, loop quantum gravity, and grand unified theories.",
+  "about": [
+    "Unified Physics Theory of Everything",
+    "UN Theory",
+    "String Theory",
+    "Loop Quantum Gravity",
+    "Grand Unified Theories"
+  ]
+}
+</script>
 </head>
 
 <body>
+
+<!-- COSMIC HEADER -->
+<div class="logo-band">
+    <img src="Copilot_20260701_182519.png" alt="UN Theory Logo">
+</div>
+
+<!-- COSMIC NAVIGATION -->
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">UN Theory Home</a></li>
+<li><a href="un-theory-overview.html">Overview</a></li>
+<li><a href="un-theory-comparison.html" class="active">Comparison</a></li>
+<li><a href="un-theory-faq.html">FAQ</a></li>
+<li><a href="unified-theory-of-everything.html">Unified Theory</a></li>
+<li><a href="un-theory-index.html">Corpus Index</a></li>
+<li><a href="https://zenodo.org/communities/unified-information-substrate">Zenodo</a></li>
+<li><a href="https://orcid.org/0009-0007-8611-7101">ORCID</a></li>
+
+<li style="margin-left:auto;">
+    <button id="darkToggle" class="dark-toggle">Dark Mode</button>
+</li>
+</ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main>
 
 <h1>UN Theory vs Other Unified Physics Frameworks</h1>
 
@@ -74,22 +120,23 @@ This page compares UN Theory — The Unified Information Substrate — with majo
 UN Theory derives geometry, quantum behaviour, the Standard Model, tensor sector, cosmology, and terminal‑state physics from a single substrate — δI. No other framework derives all physical behaviour from one primitive object.
 </p>
 
-</body>
+</main>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "name": "UN Theory vs Other Unified Physics Frameworks",
-  "about": [
-    "Unified Physics Theory of Everything",
-    "UN Theory",
-    "String Theory",
-    "Loop Quantum Gravity",
-    "Grand Unified Theories"
-  ],
-  "url": "https://untheory.github.io/UN-Theory/un-theory-comparison.html"
-}
+<!-- COSMIC FOOTER -->
+<footer class="site-footer">
+© 2026 UN Theory — All Rights Reserved
+</footer>
+
+<!-- DARK MODE SCRIPT -->
+<script>
+const btn = document.getElementById('darkToggle');
+btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    btn.textContent = document.body.classList.contains('dark')
+        ? 'Light Mode'
+        : 'Dark Mode';
+});
 </script>
 
+</body>
 </html>
