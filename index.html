@@ -24,7 +24,6 @@
 
 <div class="logo-band">
     <img src="Copilot_20260701_182519.png" alt="UN Theory Logo">
-    <button id="darkToggle" class="dark-toggle">Dark Mode</button>
 </div>
 
 <nav class="main-nav">
@@ -37,6 +36,12 @@
 <li><a href="un-theory-index.html" class="active">Corpus Index</a></li>
 <li><a href="https://zenodo.org/communities/unified-information-substrate">Zenodo</a></li>
 <li><a href="https://orcid.org/0009-0007-8611-7101">ORCID</a></li>
+
+<!-- ⭐ Dark Mode Toggle moved into nav bar -->
+<li style="margin-left:auto;">
+    <button id="darkToggle" class="dark-toggle">Dark Mode</button>
+</li>
+
 </ul>
 </nav>
 
@@ -84,7 +89,11 @@ and the United States of America.</p>
 
 <h2>Search the UN Theory Corpus</h2>
 
-<input type="text" id="searchBox" class="search-box" placeholder="DOI link appears here when selected…">
+<!-- FIXED: Search box placed correctly -->
+<div style="margin-bottom:20px;">
+    <input type="text" id="searchBox" class="search-box"
+           placeholder="DOI link appears here when selected…">
+</div>
 
 <select id="documentList" class="dropdown-box" size="14"></select>
 
