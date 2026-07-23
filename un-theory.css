@@ -95,21 +95,3 @@ main {
     left: 0;
     z-index: 2000;
 }
-/* ============================================================
-   FINAL: PIN NAV BAR WITHOUT TOUCHING ANY HTML
-   ============================================================ */
-
-.main-nav {
-    position: fixed !important;
-    top: 200px !important;   /* sits directly under your header */
-    left: 0;
-    width: 100%;
-    background: #000;
-    border-bottom: 3px solid #00aaff;
-    z-index: 9999 !important;
-}
-
-/* Make room for header + nav so content isn't hidden */
-body {
-    padding-top: 260px !important;   /* 200 header + 60 nav */
-}
