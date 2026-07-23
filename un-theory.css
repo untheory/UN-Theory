@@ -1,5 +1,5 @@
 /* ============================================================
-   UN THEORY — COSMIC SITE CSS (FINAL FIXED NAV VERSION)
+   UN THEORY — COSMIC SITE CSS (FINAL VERSION, PINNED NAV)
    ============================================================ */
 
 /* Base body + cosmic background */
@@ -13,20 +13,23 @@ body {
     color: #fff;
     line-height: 1.6;
 
-    /* SPACE FOR FIXED NAV BAR */
-    padding-top: 70px;
+    /* add space for pinned header + nav */
+    padding-top: 260px; /* 200 header + ~60 nav */
 }
 
-/* HEADER — NORMAL (NOT STICKY, NOT FIXED) */
+/* HEADER / LOGO BAND — SAME AS BEFORE */
 .logo-band {
     width: 100%;
-    height: 200px;
-    background: #222;
-    padding: 20px 0;
+    height: 200px; /* TALLER HEADER SO LOGO FITS */
+    background: #222; /* SOLID DARK GREY */
+    padding: 20px 0; /* EXTRA SPACE FOR LOGO */
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 3px solid #00aaff;
+    position: fixed;   /* PINNED */
+    top: 0;
+    z-index: 3000;
 }
 
 .logo-band img {
@@ -34,22 +37,18 @@ body {
     height: auto;
 }
 
-/* ============================================================
-   NAVIGATION BAR — FIXED AT TOP (ALWAYS VISIBLE)
-   ============================================================ */
-
-nav {
-    background: #000;
+/* NAVIGATION BAR — ONLY CHANGE: sticky → fixed */
+.main-nav {
+    background: #000; /* SOLID BLACK */
     border-bottom: 3px solid #00aaff;
-
-    position: fixed !important;   /* FORCE FIXED */
-    top: 0 !important;            /* ALWAYS AT TOP */
-    left: 0 !important;
-    width: 100% !important;
-    z-index: 9999 !important;     /* ABOVE HEADER */
+    position: fixed;      /* PINNED, NOT STICKY */
+    top: 200px;           /* SITS UNDER HEADER */
+    left: 0;
+    width: 100%;
+    z-index: 2500;
 }
 
-nav ul {
+.main-nav ul {
     list-style: none;
     margin: 0;
     padding: 14px 20px;
@@ -58,38 +57,32 @@ nav ul {
     align-items: center;
 }
 
-nav a {
+.main-nav a {
     color: #00ccff;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1rem;
 }
 
-nav a:hover {
+.main-nav a:hover {
     color: #fff;
 }
 
-nav a.active {
+.main-nav a.active {
     color: #fff;
     border-bottom: 2px solid #00aaff;
 }
 
-/* ============================================================
-   MAIN CONTENT
-   ============================================================ */
-
+/* MAIN CONTENT — UNCHANGED */
 main {
     max-width: 900px;
-    margin: 60px auto 160px auto;
+    margin: 0 auto 160px auto; /* SPACE FOR FIXED FOOTER */
     padding: 30px;
     background: rgba(0,0,0,0.75);
     border-radius: 12px;
 }
 
-/* ============================================================
-   FOOTER — FIXED
-   ============================================================ */
-
+/* FOOTER — PINNED TO BOTTOM */
 .site-footer {
     width: 100%;
     background: rgba(0,0,0,0.85);
@@ -97,7 +90,6 @@ main {
     padding: 20px;
     text-align: center;
     font-size: 0.9rem;
-
     position: fixed;
     bottom: 0;
     left: 0;
