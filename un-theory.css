@@ -1,5 +1,5 @@
 /* ============================================================
-   UN THEORY — COSMIC SITE CSS (FIXED HEADER + FIXED NAV BAR)
+   UN THEORY — COSMIC SITE CSS (PINNED NAV BAR ONLY)
    ============================================================ */
 
 /* Base body + cosmic background */
@@ -13,14 +13,11 @@ body {
     color: #fff;
     line-height: 1.6;
 
-    /* FIX FOR DISAPPEARING BUTTONS */
-    padding-top: 260px; /* header (200px) + nav (60px) */
+    /* SPACE FOR FIXED NAV BAR */
+    padding-top: 70px; /* height of nav bar */
 }
 
-/* ============================================================
-   HEADER / LOGO BAND — FIXED
-   ============================================================ */
-
+/* HEADER / LOGO BAND — NORMAL, SCROLLS WITH PAGE */
 .logo-band {
     width: 100%;
     height: 200px;
@@ -30,11 +27,7 @@ body {
     justify-content: center;
     align-items: center;
     border-bottom: 3px solid #00aaff;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3000;
+    /* NO sticky/fixed here */
 }
 
 .logo-band img {
@@ -42,16 +35,13 @@ body {
     height: auto;
 }
 
-/* ============================================================
-   NAVIGATION BAR — FIXED UNDER HEADER
-   ============================================================ */
-
+/* NAVIGATION BAR — FIXED AT TOP */
 .main-nav {
     background: #000;
     border-bottom: 3px solid #00aaff;
 
     position: fixed;
-    top: 200px; /* sits directly under header */
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 2500;
@@ -82,22 +72,16 @@ body {
     border-bottom: 2px solid #00aaff;
 }
 
-/* ============================================================
-   MAIN CONTENT — STRONG CONTRAST, READABLE
-   ============================================================ */
-
+/* MAIN CONTENT */
 main {
     max-width: 900px;
-    margin: 0 auto 160px auto;
+    margin: 60px auto 160px auto;
     padding: 30px;
     background: rgba(0,0,0,0.75);
     border-radius: 12px;
 }
 
-/* ============================================================
-   FOOTER — PINNED TO BOTTOM
-   ============================================================ */
-
+/* FOOTER — PINNED TO BOTTOM */
 .site-footer {
     width: 100%;
     background: rgba(0,0,0,0.85);
@@ -105,7 +89,6 @@ main {
     padding: 20px;
     text-align: center;
     font-size: 0.9rem;
-
     position: fixed;
     bottom: 0;
     left: 0;
