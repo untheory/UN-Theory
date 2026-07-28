@@ -55,6 +55,7 @@
     }
     .button-row {
         margin-top: 20px;
+        margin-bottom: 20px;
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
@@ -86,6 +87,21 @@
         background: #ddd;
         color: #000;
     }
+    .index-note-box {
+        background: #f8fafc;
+        border-left: 4px solid #0066cc;
+        padding: 16px 20px;
+        margin-top: 30px;
+        border-radius: 0 8px 8px 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    .index-note-box h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+        color: #0f172a;
+    }
 </style>
 </head>
 
@@ -116,8 +132,19 @@
 <h1>UN Theory — Full Corpus Index</h1>
 
 <p>
-This interactive index provides access to all UN Theory documents, including core volumes, sector papers, prediction papers, mathematical closure documents, and supporting research. All documents are authored by Clint Jefferys.
+Welcome to the interactive primary catalog for <strong>UN Theory — The Unified Information Substrate</strong>, authored by Clint Jefferys. This repository organizes the formal mathematical derivations, non-perturbative RG fixed-point proofs, Standard Model gauge/spinor emerging structures, and multi-probe observational validation papers that constitute the full framework.
 </p>
+
+<p>
+The corpus is systematically structured into four primary release tiers:
+</p>
+
+<ul>
+  <li><strong>Core Theorem Papers (I–IV):</strong> Formal mathematical derivations establishing emergent geometry, scale invariance, $su(3) \oplus su(2) \oplus u(1)$ Lie algebras, and global action convexity.</li>
+  <li><strong>12-Sector Multi-Probe Validation:</strong> Empirical constraints and quantitative proofs spanning observational cosmology, planetary dynamics, deep-Earth compression, and particle physics.</li>
+  <li><strong>Sector &amp; Machinery Monographs:</strong> Specialist treatises detailing microscopic correlation dynamics, parity-odd trispectra, and Hamiltonian operational machinery.</li>
+  <li><strong>Restricted Structural Volumes:</strong> Extended axiomatic drafts, comprehensive equation indexes, and foundational correspondence layers held for peer-review and institutional access.</li>
+</ul>
 
 <h2>Search the UN Theory Corpus</h2>
 
@@ -130,6 +157,12 @@ This interactive index provides access to all UN Theory documents, including cor
     <button id="copyDOI" type="button">Copy DOI</button>
     <button id="copyCitation" type="button">Copy Full Citation</button>
     <a href="un-theory-overview.html">UN Theory Overview</a>
+</div>
+
+<div class="index-note-box">
+  <h3>Corpus Access &amp; Citation Guidance</h3>
+  <p><strong>🔓 Public Documents:</strong> Fully open-access records deposited on Zenodo. Selecting a public manuscript automatically generates its resolvable DOI link (`https://doi.org/...`) and formatted academic citation above for immediate download or peer review.</p>
+  <p><strong>🔒 Restricted Documents:</strong> Advanced axiomatic formulations, full canonical equation indexes, and pre-print draft volumes. Access is reserved for academic referees, institutional collaborators, and theoretical verification panels upon request.</p>
 </div>
 
 <script>
@@ -288,7 +321,6 @@ document.getElementById("copyCitation").onclick = () => {
   }, { passive: true });
 
   document.addEventListener('touchend', e => {
-    // If zoomed in beyond normal scale, disable swipe navigation so single-finger dragging pans the page
     if (window.visualViewport && window.visualViewport.scale > 1.05) {
       return;
     }
