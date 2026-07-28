@@ -276,5 +276,24 @@ document.getElementById("copyCitation").onclick = () => {
     </a>
 </footer>
 
+<!-- MOBILE TOUCH SWIPE NAVIGATION -->
+<script>
+  let touchStartX = 0, touchEndX = 0;
+  const minSwipeDistance = 75;
+  const prevPage = "unified-theory-of-everything.html";
+  const nextPage = null; // Last page in order
+
+  document.addEventListener('touchstart', e => { 
+    touchStartX = e.changedTouches[0].screenX; 
+  }, { passive: true });
+
+  document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const dist = touchEndX - touchStartX;
+    if (dist < -minSwipeDistance && nextPage) window.location.href = nextPage;
+    if (dist > minSwipeDistance && prevPage) window.location.href = prevPage;
+  }, { passive: true });
+</script>
+
 </body>
 </html>
