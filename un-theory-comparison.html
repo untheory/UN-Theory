@@ -303,7 +303,7 @@ The complete 12-sector multi-probe empirical report is published on Zenodo and i
     </a>
 </footer>
 
-<!-- MOBILE TOUCH SWIPE NAVIGATION -->
+<!-- MOBILE TOUCH SWIPE NAVIGATION (ZOOM-AWARE) -->
 <script>
   let touchStartX = 0, touchEndX = 0;
   const minSwipeDistance = 75;
@@ -315,8 +315,14 @@ The complete 12-sector multi-probe empirical report is published on Zenodo and i
   }, { passive: true });
 
   document.addEventListener('touchend', e => {
+    // If zoomed in beyond normal scale, disable swipe navigation so single-finger dragging pans the page
+    if (window.visualViewport && window.visualViewport.scale > 1.05) {
+      return;
+    }
+
     touchEndX = e.changedTouches[0].screenX;
     const dist = touchEndX - touchStartX;
+
     if (dist < -minSwipeDistance && nextPage) window.location.href = nextPage;
     if (dist > minSwipeDistance && prevPage) window.location.href = prevPage;
   }, { passive: true });
