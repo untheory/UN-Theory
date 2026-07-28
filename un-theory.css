@@ -1,13 +1,13 @@
 /* ============================================================
-   UN THEORY — COSMIC SITE CSS (FIXED NAV, LOGO HEADER & SWIPE)
+   UN THEORY — COSMIC SITE CSS (FIXED NAV, LOGO HEADER & FULL ZOOM)
    ============================================================ */
 
-/* Reset browser defaults */
+/* Reset browser defaults & allow native double-tap and pinch zoom */
 html, body {
     margin: 0;
     padding: 0;
-    /* Ensure vertical page scrolling doesn't jitter during horizontal mobile swipes */
-    touch-action: pan-y;
+    /* Allows pinch-zoom and double-tap zoom while maintaining smooth scrolling & JS swipes */
+    touch-action: manipulation;
 }
 
 /* Base body + cosmic background */
@@ -22,17 +22,6 @@ body {
     /* Space for fixed nav (~50px) + logo band (180px) + padding */
     padding-top: 250px;
     padding-bottom: 120px;
-
-    /* Prevent unintended text selection on mobile horizontal swipes */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-/* Re-enable selection for content areas so readers can still copy text, tables & citations */
-p, td, th, h1, h2, h3, ul, ol, input, select, textarea, .search-box, .dropdown-box {
-    -webkit-user-select: text;
-    user-select: text;
 }
 
 /* 1. NAV BAR — FIXED AT VERY TOP (TOP: 0) */
