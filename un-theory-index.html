@@ -2,10 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>UN Theory — Full Corpus Index</title>
-<meta name="description" content="Complete index of all UN Theory documents including volumes, sector papers, prediction papers, axioms, equation index, and Hamiltonian stack.">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UN Theory — Full Corpus Index | Clint Jefferys</title>
+<meta name="description" content="Complete index of all UN Theory documents including core volumes, sector papers, prediction papers, axioms, equation index, and Hamiltonian stack by Clint Jefferys.">
+<link rel="canonical" href="https://untheory.github.io/UN-Theory/un-theory-index.html">
 <link rel="stylesheet" href="un-theory.css">
+
+<!-- OpenGraph Metadata -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="UN Theory — Full Corpus Index">
+<meta property="og:description" content="Complete index of all UN Theory documents including volumes, sector papers, prediction papers, axioms, equation index, and Hamiltonian stack.">
+<meta property="og:url" content="https://untheory.github.io/UN-Theory/un-theory-index.html">
+
+<!-- Academic Schema Markup (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0009-0007-8611-7101",
+      "name": "Clint Jefferys",
+      "identifier": "0009-0007-8611-7101",
+      "jobTitle": "Independent Theoretical Physics Researcher",
+      "sameAs": [
+        "https://orcid.org/0009-0007-8611-7101",
+        "https://zenodo.org/communities/unified-information-substrate",
+        "https://cjcs.co.uk/un-theory"
+      ]
+    },
+    {
+      "@type": "DataCatalog",
+      "@id": "https://untheory.github.io/UN-Theory/un-theory-index.html#catalog",
+      "url": "https://untheory.github.io/UN-Theory/un-theory-index.html",
+      "name": "UN Theory — Full Corpus Index",
+      "description": "Interactive catalog of public and restricted sector papers, technical memoranda, and mathematical closure documents for the Unified Information Substrate.",
+      "author": {
+        "@id": "https://orcid.org/0009-0007-8611-7101"
+      }
+    }
+  ]
+}
+</script>
 
 <style>
     .search-box, .dropdown-box {
@@ -13,6 +51,7 @@
         padding: 10px;
         font-size: 16px;
         margin-bottom: 20px;
+        box-sizing: border-box;
     }
     .button-row {
         margin-top: 20px;
@@ -21,33 +60,33 @@
         flex-wrap: wrap;
     }
     .button-row a, .button-row button {
-        background:#333;
-        color:#fff;
-        padding:10px 20px;
-        text-decoration:none;
-        border:none;
-        border-radius:6px;
-        font-weight:bold;
-        cursor:pointer;
+        background: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 14px;
     }
     #openZenodo {
-        background:#0066cc;
+        background: #0066cc;
     }
     .option-public {
-        color:#0a0;
-        font-weight:bold;
+        color: #0a0;
+        font-weight: bold;
     }
     .option-restricted {
-        color:#a00;
-        font-weight:bold;
+        color: #a00;
+        font-weight: bold;
     }
     .option-label {
-        font-weight:bold;
-        background:#ddd;
-        color:#000;
+        font-weight: bold;
+        background: #ddd;
+        color: #000;
     }
 </style>
-
 </head>
 
 <body>
@@ -66,8 +105,8 @@
 <li><a href="un-theory-faq.html">FAQ</a></li>
 <li><a href="unified-theory-of-everything.html">Unified Theory</a></li>
 <li><a href="un-theory-index.html" class="active">Corpus Index</a></li>
-<li><a href="https://zenodo.org/records/20947541">Zenodo</a></li>
-<li><a href="https://orcid.org/0009-0007-8611-7101">ORCID</a></li>
+<li><a href="https://zenodo.org/records/20947541" target="_blank" rel="noopener">Zenodo</a></li>
+<li><a href="https://orcid.org/0009-0007-8611-7101" target="_blank" rel="noopener">ORCID</a></li>
 </ul>
 </nav>
 
@@ -82,14 +121,14 @@ This interactive index provides access to all UN Theory documents, including cor
 
 <h2>Search the UN Theory Corpus</h2>
 
-<input type="text" id="searchBox" class="search-box" placeholder="DOI link appears here when selected…">
+<input type="text" id="searchBox" class="search-box" placeholder="DOI link appears here when selected…" readonly>
 
 <select id="documentList" class="dropdown-box" size="14"></select>
 
 <div class="button-row">
-    <a id="openZenodo" href="#" target="_blank">Open on Zenodo</a>
-    <button id="copyDOI">Copy DOI</button>
-    <button id="copyCitation">Copy Full Citation</button>
+    <a id="openZenodo" href="#" target="_blank" rel="noopener">Open on Zenodo</a>
+    <button id="copyDOI" type="button">Copy DOI</button>
+    <button id="copyCitation" type="button">Copy Full Citation</button>
     <a href="un-theory-overview.html">UN Theory Overview</a>
 </div>
 
@@ -160,6 +199,7 @@ function populateList() {
     let optLabelPub = document.createElement("option");
     optLabelPub.textContent = "--- Public Documents ---";
     optLabelPub.className = "option-label";
+    optLabelPub.disabled = true;
     list.appendChild(optLabelPub);
 
     publicDocs.forEach(doc => {
@@ -174,6 +214,7 @@ function populateList() {
     let optLabelRes = document.createElement("option");
     optLabelRes.textContent = "--- Restricted Documents ---";
     optLabelRes.className = "option-label";
+    optLabelRes.disabled = true;
     list.appendChild(optLabelRes);
 
     restrictedDocs.forEach(doc => {
@@ -188,31 +229,32 @@ function populateList() {
 populateList();
 
 // --- When a document is selected ---
-document.getElementById("documentList").addEventListener("change", function() {
+list.addEventListener("change", function() {
     const opt = this.options[this.selectedIndex];
+    if (opt.disabled) return;
     const doi = opt.dataset.doi;
 
-    // Put DOI link in search box
     document.getElementById("searchBox").value = "https://doi.org/" + doi;
-
-    // Update Zenodo button link
     document.getElementById("openZenodo").href = "https://doi.org/" + doi;
 });
 
 // --- Copy DOI ---
 document.getElementById("copyDOI").onclick = () => {
+    if (list.selectedIndex < 0) return;
     const opt = list.options[list.selectedIndex];
+    if (opt.disabled || !opt.dataset.doi) return;
     navigator.clipboard.writeText(opt.dataset.doi);
 };
 
-// --- Copy Citation (FIXED) ---
+// --- Copy Citation ---
 document.getElementById("copyCitation").onclick = () => {
+    if (list.selectedIndex < 0) return;
     const opt = list.options[list.selectedIndex];
+    if (opt.disabled || !opt.dataset.doi) return;
     const cleanTitle = opt.textContent.replace("🔓 ","").replace("🔒 ","");
     const citation = `Jefferys, C. (2026). ${cleanTitle}. DOI: ${opt.dataset.doi}`;
     navigator.clipboard.writeText(citation);
 };
-
 </script>
 
 </main>
@@ -222,10 +264,9 @@ document.getElementById("copyCitation").onclick = () => {
     © 2026 UN Theory — All Rights Reserved<br><br>
 
     <a class="cjcs-link" href="https://cjcs.co.uk" target="_blank" rel="noopener">
-        CJ Consultancy Services Ltd — Professional Compliance & Engineering Services
+        CJ Consultancy Services Ltd — Professional Compliance &amp; Engineering Services
     </a>
 </footer>
-
 
 </body>
 </html>
