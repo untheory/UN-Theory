@@ -1,13 +1,13 @@
 /* ============================================================
-   UN THEORY — COSMIC SITE CSS (FIXED NAV, LOGO HEADER & FULL ZOOM)
+   UN THEORY — COSMIC SITE CSS (FIXED NAV, LOGO HEADER & FULL PAN/ZOOM)
    ============================================================ */
 
-/* Reset browser defaults & allow native double-tap and pinch zoom */
+/* Reset browser defaults & allow native double-tap, pinch zoom, and 2D viewport panning */
 html, body {
     margin: 0;
     padding: 0;
-    /* Allows pinch-zoom and double-tap zoom while maintaining smooth scrolling & JS swipes */
-    touch-action: manipulation;
+    /* Gives the browser full freedom for native pinch-zoom, double-tap, and single-finger panning */
+    touch-action: auto;
 }
 
 /* Base body + cosmic background */
