@@ -1,11 +1,13 @@
 /* ============================================================
-   UN THEORY — COSMIC SITE CSS (FIXED NAV & LOGO HEADER)
+   UN THEORY — COSMIC SITE CSS (FIXED NAV, LOGO HEADER & SWIPE)
    ============================================================ */
 
 /* Reset browser defaults */
 html, body {
     margin: 0;
     padding: 0;
+    /* Ensure vertical page scrolling doesn't jitter during horizontal mobile swipes */
+    touch-action: pan-y;
 }
 
 /* Base body + cosmic background */
@@ -20,6 +22,17 @@ body {
     /* Space for fixed nav (~50px) + logo band (180px) + padding */
     padding-top: 250px;
     padding-bottom: 120px;
+
+    /* Prevent unintended text selection on mobile horizontal swipes */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Re-enable selection for content areas so readers can still copy text, tables & citations */
+p, td, th, h1, h2, h3, ul, ol, input, select, textarea, .search-box, .dropdown-box {
+    -webkit-user-select: text;
+    user-select: text;
 }
 
 /* 1. NAV BAR — FIXED AT VERY TOP (TOP: 0) */
@@ -98,6 +111,7 @@ main {
     width: 100%;
     overflow-x: auto;
     margin: 1.5rem 0;
+    -webkit-overflow-scrolling: touch;
 }
 
 table {
@@ -147,4 +161,35 @@ tbody tr:nth-child(even) {
 
 .site-footer a:hover {
     text-decoration: underline;
+}
+
+/* 3. MOBILE & SMALL SCREEN RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    body {
+        padding-top: 200px; /* Reduced top offset for smaller mobile screens */
+        padding-bottom: 100px;
+    }
+
+    .main-nav ul {
+        padding: 8px 10px;
+        gap: 12px;
+    }
+
+    .main-nav a {
+        font-size: 0.85rem;
+    }
+
+    .logo-band {
+        top: 42px;
+        height: 120px;
+    }
+
+    .logo-band img {
+        max-height: 90px;
+    }
+
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
 }
