@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="UN Theory vs Other Unified Physics Frameworks">
 <meta property="og:description" content="12-Sector Multi-Probe Empirical Confrontation: UN Theory vs String Theory, Loop Quantum Gravity, and Standard ΛCDM.">
-<meta property="og:url" content="https://untheory.github.io/UN-Theory/un-theory-comparison.html">
+<meta property="og:url" content="https://untheory.co.uk/un-theory-comparison.html">
 
 <!-- Academic Schema Markup (JSON-LD) -->
 <script type="application/ld+json">
@@ -28,7 +28,7 @@
       "sameAs": [
         "https://orcid.org/0009-0007-8611-7101",
         "https://zenodo.org/communities/unified-information-substrate",
-        "https://cjcs.co.uk/un-theory"
+        "https://untheory.co.uk/"
       ]
     },
     {
@@ -39,8 +39,8 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://untheory.github.io/UN-Theory/un-theory-comparison.html#webpage",
-      "url": "https://untheory.github.io/UN-Theory/un-theory-comparison.html",
+      "@id": "https://untheory.co.uk/un-theory-comparison.html#webpage",
+      "url": "https://untheory.co.uk/un-theory-comparison.html",
       "name": "UN Theory vs Other Unified Physics Frameworks",
       "description": "Comparative analysis and 12-sector empirical confrontation between UN Theory, String Theory, Loop Quantum Gravity, and Standard ΛCDM cosmology.",
       "author": {
@@ -58,7 +58,7 @@
 <div class="logo-band">
     <img src="Copilot_20260701_182519.png" alt="UN Theory Logo">
 </div>
-
+  
 <!-- NAVIGATION -->
 <nav class="main-nav">
 <ul>
@@ -304,21 +304,29 @@ The complete 12-sector multi-probe empirical report is published on Zenodo and i
 </footer>
 
 <script>
-  let touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0, isMultiTouch = false;
+  let touchStartX = 0, touchStartY = 0, isMultiTouch = false;
   const minSwipeDistance = 80;
   const prevPage = "un-theory-overview.html";
   const nextPage = "un-theory-faq.html";
 
-  document.addEventListener('touchstart', e => { 
-    if (e.touches.length > 1) { isMultiTouch = true; return; }
+  document.addEventListener('touchstart', function(e) { 
+    if (e.touches.length > 1) { 
+      isMultiTouch = true; 
+      return; 
+    }
     isMultiTouch = false;
-    touchStartX = e.touches.clientX; touchStartY = e.touches.clientY; 
+    touchStartX = e.touches[0].clientX; 
+    touchStartY = e.touches[0].clientY; 
   }, { passive: true });
 
-  document.addEventListener('touchend', e => {
-    if (isMultiTouch || (window.visualViewport && window.visualViewport.scale > 1.05)) return;
-    touchEndX = e.changedTouches.clientX; touchEndY = e.changedTouches.clientY;
-    const distX = touchEndX - touchStartX, distY = touchEndY - touchStartY;
+  document.addEventListener('touchend', function(e) {
+    if (isMultiTouch) return;
+    if (window.visualViewport && window.visualViewport.scale > 1.05) return;
+    if (!e.changedTouches || e.changedTouches.length === 0) return;
+
+    const distX = e.changedTouches[0].clientX - touchStartX;
+    const distY = e.changedTouches[0].clientY - touchStartY;
+
     if (Math.abs(distX) > Math.abs(distY) * 1.5) {
       if (distX < -minSwipeDistance && nextPage) window.location.href = nextPage;
       if (distX > minSwipeDistance && prevPage) window.location.href = prevPage;
