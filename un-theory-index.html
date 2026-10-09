@@ -6,7 +6,8 @@
 <title>UN Theory® — Full Corpus Index | Clint Jefferys</title>
 <meta name="description" content="Complete index of all UN Theory documents including core volumes, sector papers, prediction papers, axioms, equation index, and Hamiltonian stack by Clint Jefferys.">
 <link rel="canonical" href="https://untheory.co.uk/un-theory-index.html" />
-<link rel="stylesheet" href="un-theory.css">
+<link rel="stylesheet" href="un-theory.css?v=2">
+<script src="swipe.js" defer></script>
 
 <!-- OpenGraph Metadata -->
 <meta property="og:type" content="website">
@@ -115,12 +116,7 @@
 
 <body>
 
-<!-- HEADER -->
-<div class="logo-band">
-    <img src="Copilot_20260701_182519.png" alt="UN Theory Logo">
-</div>
-
-<!-- NAVIGATION -->
+<!-- NAVIGATION (Positioned first so sticky top alignment stays clean) -->
 <nav class="main-nav">
 <ul>
 <li><a href="index.html">Home</a></li>
@@ -134,8 +130,13 @@
 </ul>
 </nav>
 
-<!-- MAIN CONTENT -->
-<main style="max-width:900px; margin:40px auto; padding:20px;">
+<!-- LOGO BAND (Sits under navigation) -->
+<div class="logo-band">
+    <img src="Copilot_20260701_182519.png" alt="UN Theory Logo">
+</div>
+
+<!-- MAIN CONTENT (Inline max-width removed so un-theory.css controls width on desktop) -->
+<main>
 
 <h1>UN Theory® — Full Corpus Index</h1>
 
@@ -333,5 +334,5 @@ document.getElementById("copyCitation").onclick = () => {
         CJ Consultancy Services Ltd — Professional Compliance &amp; Engineering Services
     </a>
 </footer>
-
-
+</body>
+</html>
