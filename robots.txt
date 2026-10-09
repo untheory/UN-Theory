@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://untheory.github.io/UN-Theory/sitemap.xml
+Sitemap: https://untheory.co.uk/sitemap.xml
