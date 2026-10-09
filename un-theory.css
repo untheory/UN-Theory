@@ -37,25 +37,7 @@ body {
     background-attachment: fixed;
 }
 
-/* 1. HEADER & LOGO BAND (Natural top placement) */
-.logo-band {
-    width: 100%;
-    height: 180px;
-    padding: 15px 20px;
-    background: #111111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 2px solid #00aaff;
-}
-
-.logo-band img {
-    max-width: 100%;
-    max-height: 150px;
-    object-fit: contain;
-}
-
-/* 2. NAVIGATION BAR (Sticks smoothly to top as you scroll past logo) */
+/* 1. NAVIGATION BAR (Sticks smoothly to the very top of the viewport) */
 .main-nav {
     position: sticky;
     top: 0;
@@ -103,17 +85,35 @@ body {
     border-bottom: 2px solid #00aaff;
 }
 
-/* 3. MAIN CONTENT AREA (Expanded for wider desktop view) */
+/* 2. HEADER & LOGO BAND (Sits under navigation bar) */
+.logo-band {
+    width: 100%;
+    height: 180px;
+    padding: 15px 20px;
+    background: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #00aaff;
+}
+
+.logo-band img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+/* 3. MAIN CONTENT AREA (Expanded desktop view) */
 main {
     width: 92%;
-    max-width: 1350px; /* Widened from 960px to fill desktop screens */
+    max-width: 1350px; /* Expands content area to fill widescreen displays */
     margin: 30px auto 50px;
     padding: 40px;
     background: rgba(0, 0, 0, 0.88);
     border: 1px solid #334155;
     border-radius: 12px;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
-    flex: 1 0 auto; /* Pushes footer down to bottom of screen */
+    flex: 1 0 auto; /* Keeps footer pushed to bottom of short pages */
 }
 
 /* Typography & Links */
@@ -222,6 +222,22 @@ input, select, button {
     margin: 20px 0;
 }
 
+.button-row a, .button-row button {
+    background: #1e293b;
+    color: #ffffff;
+    padding: 10px 18px;
+    text-decoration: none;
+    border: 1px solid #00aaff;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-row a:hover, .button-row button:hover {
+    background: #00aaff;
+    color: #000000;
+}
+
 /* 4. FOOTER BANNER (Anchored at page bottom) */
 .site-footer {
     width: 100%;
@@ -249,7 +265,7 @@ input, select, button {
    ============================================================ */
 @media screen and (max-width: 900px) {
     body {
-        background-attachment: scroll !important;
+        background-attachment: scroll !important; /* Prevents background image locking touch scroll on phones */
     }
 
     .main-nav ul {
@@ -259,6 +275,7 @@ input, select, button {
         padding: 10px;
         overflow-x: auto;
         white-space: nowrap;
+        overscroll-behavior-x: contain;
     }
 
     .logo-band {
