@@ -11,14 +11,14 @@
       "sameAs": [
         "https://orcid.org/0009-0007-8611-7101",
         "https://zenodo.org/communities/unified-information-substrate",
-        "https://cjcs.co.uk/un-theory",
-        "https://cjcs.co.uk/un-theory-index"
+        "https://untheory.co.uk/",
+        "https://untheory.co.uk/un-theory-index.html"
       ]
     },
     {
       "@type": "WebSite",
-      "@id": "https://untheory.github.io/UN-Theory/#website",
-      "url": "https://untheory.github.io/UN-Theory/",
+      "@id": "https://untheory.co.uk/#website",
+      "url": "https://untheory.co.uk/",
       "name": "UN Theory — Authoritative Repository & Index",
       "author": {
         "@id": "https://orcid.org/0009-0007-8611-7101"
