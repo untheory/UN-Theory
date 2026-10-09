@@ -154,29 +154,65 @@ All papers are available through the <a href="https://doi.org/10.5281/zenodo.209
     </a>
 </footer>
 
-<!-- MOBILE TOUCH SWIPE NAVIGATION (ZOOM & MULTI-TOUCH SAFE) -->
 <script>
-  let touchStartX = 0, touchStartY = 0;
-  let touchEndX = 0, touchEndY = 0;
-  let isMultiTouch = false;
+  let touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0, isMultiTouch = false;
   const minSwipeDistance = 80;
   const prevPage = "un-theory-comparison.html";
   const nextPage = "unified-theory-of-everything.html";
 
   document.addEventListener('touchstart', e => { 
-    if (e.touches.length > 1) {
-      isMultiTouch = true; // User is pinching or zooming with 2+ fingers
-      return;
-    }
+    if (e.touches.length > 1) { isMultiTouch = true; return; }
     isMultiTouch = false;
-    touchStartX = e.touches[0].clientX; 
-    touchStartY = e.touches[0].clientY; 
+    touchStartX = e.touches.clientX; touchStartY = e.touches.clientY; 
   }, { passive: true });
 
   document.addEventListener('touchend', e => {
-    // Ignore multi-touch (pinch-zoom) or if the page is zoomed in
-    if (isMultiTouch) return;
-    if (window.visualViewport && window.visualViewport.scale > 1.05) return;
+    if (isMultiTouch || (window.visualViewport && window.visualViewport.scale > **You are 100% right, mate!** Because all 6 `.html` pages have that old touch script copied at the bottom, visiting any other page still triggers the touch bug.
 
-    touchEndX = e.changedTouches[0].clientX;
-    touchEndY = e.changedTouches[0].clientY;
+To make this dead simple and avoid editing custom links on every page, here is **one universal script**. You can paste this **exact same script block** into the bottom of all 6 `.html` files:
+
+```html
+<!-- UNIVERSAL MOBILE TOUCH NAVIGATION (ZOOM & MULTI-TOUCH SAFE) -->
+<script>
+  (function() {
+    const pages = [
+      "index.html",
+      "un-theory-overview.html",
+      "un-theory-comparison.html",
+      "un-theory-faq.html",
+      "unified-theory-of-everything.html",
+      "un-theory-index.html"
+    ];
+
+    let current = window.location.pathname.split("/").pop() || "index.html";
+    if (current === "") current = "index.html";
+    const idx = pages.indexOf(current);
+
+    const prevPage = idx > 0 ? pages[idx - 1] : null;
+    const nextPage = (idx >= 0 && idx < pages.length - 1) ? pages[idx + 1] : null;
+
+    let startX = 0, startY = 0, isMulti = false;
+    const minSwipe = 80;
+
+    document.addEventListener('touchstart', e => { 
+      if (e.touches.length > 1) { isMulti = true; return; }
+      isMulti = false;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    document.addEventListener('touchend', e => {
+      if (isMulti || (window.visualViewport && window.visualViewport.scale > 1.05)) return;
+
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const distX = endX - startX;
+      const distY = endY - startY;
+
+      if (Math.abs(distX) > Math.abs(distY) * 1.5) {
+        if (distX < -minSwipe && nextPage) window.location.href = nextPage;
+        if (distX > minSwipe && prevPage) window.location.href = prevPage;
+      }
+    }, { passive: true });
+  })();
+</script>
