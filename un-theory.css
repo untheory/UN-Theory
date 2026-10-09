@@ -153,32 +153,28 @@ tbody tr:nth-child(even) {
 }
 
 /* 3. MOBILE & SMALL SCREEN RESPONSIVE ADJUSTMENTS */
-@media (max-width: 768px) {
-    body {
-        padding-top: 200px; /* Reduced top offset for smaller mobile screens */
-        padding-bottom: 100px;
-    }
+<script>
+  let touchStartX = 0, touchStartY = 0;
+  const minSwipeDistance = 80;
+  const prevPage = "un-theory-comparison.html";
+  const nextPage = "unified-theory-of-everything.html";
 
-    .main-nav ul {
-        padding: 8px 10px;
-        gap: 12px;
-    }
+  document.addEventListener('touchstart', e => { 
+    if (e.touches.length > 1) return; // Ignore 2-finger pinch/zoom gestures
+    touchStartX = e.touches[0].clientX; 
+    touchStartY = e.touches[0].clientY; 
+  }, { passive: true });
 
-    .main-nav a {
-        font-size: 0.85rem;
-    }
+  document.addEventListener('touchend', e => {
+    if (window.visualViewport && window.visualViewport.scale > 1.05) return;
 
-    .logo-band {
-        top: 42px;
-        height: 120px;
-    }
+    const distX = e.changedTouches[0].clientX - touchStartX;
+    const distY = e.changedTouches[0].clientY - touchStartY;
 
-    .logo-band img {
-        max-height: 90px;
+    // Only redirect if horizontal swipe is distinctly greater than vertical scroll
+    if (Math.abs(distX) > Math.abs(distY) * 1.5) {
+      if (distX < -minSwipeDistance && nextPage) window.location.href = nextPage;
+      if (distX > minSwipeDistance && prevPage) window.location.href = prevPage;
     }
-
-    main {
-        margin: 10px;
-        padding: 15px;
-    }
-}
+  }, { passive: true });
+</script>
