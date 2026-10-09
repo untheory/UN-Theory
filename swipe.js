@@ -1,5 +1,5 @@
 /* ============================================================
-   UN THEORY — UNIVERSAL PAGE SWIPE NAVIGATION
+   UN THEORY — MOBILE SWIPE NAVIGATION FIX
    ============================================================ */
 (function () {
     const pages = [
@@ -10,13 +10,21 @@
         "unified-theory-of-everything.html",
         "un-theory-index.html"
     ];
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
-    const currentIndex = pages.indexOf(currentPage);
+
+    // Normalize current path (handles root `/`, empty string, or lowercase URLs)
+    let pathName = window.location.pathname.split("/").pop().toLowerCase();
+    if (!pathName || pathName === "") pathName = "index.html";
+
+    const currentIndex = pages.indexOf(pathName);
+
     let startX = 0;
     let startY = 0;
     let multiTouch = false;
     let startedInProtectedArea = false;
-    const swipeThreshold = 100;
+
+    // Mobile-friendly swipe thresholds
+    const minSwipeDistance = 50;  // Reduced from 100px for easier mobile swiping
+    const maxVerticalDrift = 60;   // Allows slight vertical angle during natural thumb swipes
 
     function isProtectedElement(element) {
         return element.closest(
@@ -36,7 +44,7 @@
     }, { passive: true });
 
     document.addEventListener("touchend", function (e) {
-        if (multiTouch || startedInProtectedArea) return;
+        if (multiTouch || startedInProtectedArea || currentIndex === -1) return;
         if (window.visualViewport && window.visualViewport.scale > 1.05) return;
         if (!e.changedTouches.length) return;
 
@@ -45,12 +53,15 @@
         const deltaX = endX - startX;
         const deltaY = endY - startY;
 
-        if (Math.abs(deltaY) > Math.abs(deltaX) || Math.abs(deltaX) < swipeThreshold) return;
+        // Ensure swipe meets horizontal distance without excessive vertical drift
+        if (Math.abs(deltaX) < minSwipeDistance || Math.abs(deltaY) > maxVerticalDrift) return;
 
         if (deltaX < 0) {
+            // Swipe Left -> Move Forward
             const nextPage = pages[currentIndex + 1];
             if (nextPage) window.location.href = nextPage;
         } else {
+            // Swipe Right -> Move Backward
             const prevPage = pages[currentIndex - 1];
             if (prevPage) window.location.href = prevPage;
         }
