@@ -12,8 +12,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="UN Theory — The Unified Information Substrate">
 <meta property="og:description" content="Complete unified physics framework describing the δI-substrate, emergent geometry, quantum behaviour, and cosmological dynamics.">
-<meta property="og:url" content="https://untheory.github.io/UN-Theory/">
+<meta property="og:url" content="https://untheory.co.uk/">
 
+<!-- Academic Schema Markup (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,14 +28,13 @@
       "sameAs": [
         "https://orcid.org/0009-0007-8611-7101",
         "https://zenodo.org/communities/unified-information-substrate",
-        "https://cjcs.co.uk/un-theory",
-        "https://cjcs.co.uk/un-theory-index"
+        "https://untheory.co.uk/"
       ]
     },
     {
       "@type": "WebSite",
-      "@id": "https://untheory.github.io/UN-Theory/#website",
-      "url": "https://untheory.github.io/UN-Theory/",
+      "@id": "https://untheory.co.uk/#website",
+      "url": "https://untheory.co.uk/",
       "name": "UN Theory — Authoritative Repository & Index",
       "author": {
         "@id": "https://orcid.org/0009-0007-8611-7101"
@@ -130,25 +130,43 @@ This site provides public access to the full UN Theory corpus: the core papers, 
     </a>
 </footer>
 
+<!-- MOBILE TOUCH SWIPE NAVIGATION -->
 <script>
-  let touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0, isMultiTouch = false;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isMultiTouch = false;
   const minSwipeDistance = 80;
   const prevPage = "";
   const nextPage = "un-theory-overview.html";
 
-  document.addEventListener('touchstart', e => { 
-    if (e.touches.length > 1) { isMultiTouch = true; return; }
+  document.addEventListener('touchstart', function(e) { 
+    if (e.touches.length > 1) {
+      isMultiTouch = true;
+      return;
+    }
     isMultiTouch = false;
-    touchStartX = e.touches.clientX; touchStartY = e.touches.clientY; 
+    touchStartX = e.touches[0].clientX; 
+    touchStartY = e.touches[0].clientY; 
   }, { passive: true });
 
-  document.addEventListener('touchend', e => {
-    if (isMultiTouch || (window.visualViewport && window.visualViewport.scale > 1.05)) return;
-    touchEndX = e.changedTouches.clientX; touchEndY = e.changedTouches.clientY;
-    const distX = touchEndX - touchStartX, distY = touchEndY - touchStartY;
+  document.addEventListener('touchend', function(e) {
+    if (isMultiTouch) return;
+    if (window.visualViewport && window.visualViewport.scale > 1.05) return;
+    if (!e.changedTouches || e.changedTouches.length === 0) return;
+
+    const distX = e.changedTouches[0].clientX - touchStartX;
+    const distY = e.changedTouches[0].clientY - touchStartY;
+
     if (Math.abs(distX) > Math.abs(distY) * 1.5) {
-      if (distX < -minSwipeDistance && nextPage) window.location.href = nextPage;
-      if (distX > minSwipeDistance && prevPage) window.location.href = prevPage;
+      if (distX < -minSwipeDistance && nextPage) {
+        window.location.href = nextPage;
+      }
+      if (distX > minSwipeDistance && prevPage) {
+        window.location.href = prevPage;
+      }
     }
   }, { passive: true });
 </script>
+
+</body>
+</html>
