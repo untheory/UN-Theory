@@ -267,30 +267,25 @@ The full theoretical corpus is available through the <a href="https://orcid.org/
     </a>
 </footer>
 
-<!-- MOBILE TOUCH SWIPE NAVIGATION (ZOOM-AWARE) -->
 <script>
-  let touchStartX = 0, touchEndX = 0;
-  const minSwipeDistance = 75;
+  let touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0, isMultiTouch = false;
+  const minSwipeDistance = 80;
   const prevPage = "index.html";
   const nextPage = "un-theory-comparison.html";
 
   document.addEventListener('touchstart', e => { 
-    touchStartX = e.changedTouches[0].screenX; 
+    if (e.touches.length > 1) { isMultiTouch = true; return; }
+    isMultiTouch = false;
+    touchStartX = e.touches.clientX; touchStartY = e.touches.clientY; 
   }, { passive: true });
 
   document.addEventListener('touchend', e => {
-    // If zoomed in beyond normal scale, disable swipe navigation so single-finger dragging pans the page
-    if (window.visualViewport && window.visualViewport.scale > 1.05) {
-      return;
+    if (isMultiTouch || (window.visualViewport && window.visualViewport.scale > 1.05)) return;
+    touchEndX = e.changedTouches.clientX; touchEndY = e.changedTouches.clientY;
+    const distX = touchEndX - touchStartX, distY = touchEndY - touchStartY;
+    if (Math.abs(distX) > Math.abs(distY) * 1.5) {
+      if (distX < -minSwipeDistance && nextPage) window.location.href = nextPage;
+      if (distX > minSwipeDistance && prevPage) window.location.href = prevPage;
     }
-
-    touchEndX = e.changedTouches[0].screenX;
-    const dist = touchEndX - touchStartX;
-
-    if (dist < -minSwipeDistance && nextPage) window.location.href = nextPage;
-    if (dist > minSwipeDistance && prevPage) window.location.href = prevPage;
   }, { passive: true });
 </script>
-
-</body>
-</html>
