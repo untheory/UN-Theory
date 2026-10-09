@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="UN Theory — Frequently Asked Questions">
 <meta property="og:description" content="Frequently asked questions about UN Theory — The Unified Information Substrate.">
-<meta property="og:url" content="https://untheory.github.io/UN-Theory/un-theory-faq.html">
+<meta property="og:url" content="https://untheory.co.uk/un-theory-faq.html">
 
 <!-- Academic & FAQ Schema Markup (JSON-LD) -->
 <script type="application/ld+json">
@@ -28,13 +28,13 @@
       "sameAs": [
         "https://orcid.org/0009-0007-8611-7101",
         "https://zenodo.org/communities/unified-information-substrate",
-        "https://cjcs.co.uk/un-theory"
+        "https://untheory.co.uk/"
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://untheory.github.io/UN-Theory/un-theory-faq.html#faq",
-      "url": "https://untheory.github.io/UN-Theory/un-theory-faq.html",
+      "@id": "https://untheory.co.uk/un-theory-faq.html#faq",
+      "url": "https://untheory.co.uk/un-theory-faq.html",
       "name": "UN Theory — Frequently Asked Questions",
       "author": {
         "@id": "https://orcid.org/0009-0007-8611-7101"
@@ -154,30 +154,29 @@ All papers are available through the <a href="https://doi.org/10.5281/zenodo.209
     </a>
 </footer>
 
-<!-- MOBILE TOUCH SWIPE NAVIGATION (ZOOM-AWARE) -->
+<!-- MOBILE TOUCH SWIPE NAVIGATION (ZOOM & MULTI-TOUCH SAFE) -->
 <script>
-  let touchStartX = 0, touchEndX = 0;
-  const minSwipeDistance = 75;
+  let touchStartX = 0, touchStartY = 0;
+  let touchEndX = 0, touchEndY = 0;
+  let isMultiTouch = false;
+  const minSwipeDistance = 80;
   const prevPage = "un-theory-comparison.html";
   const nextPage = "unified-theory-of-everything.html";
 
   document.addEventListener('touchstart', e => { 
-    touchStartX = e.changedTouches[0].screenX; 
+    if (e.touches.length > 1) {
+      isMultiTouch = true; // User is pinching or zooming with 2+ fingers
+      return;
+    }
+    isMultiTouch = false;
+    touchStartX = e.touches[0].clientX; 
+    touchStartY = e.touches[0].clientY; 
   }, { passive: true });
 
   document.addEventListener('touchend', e => {
-    // If zoomed in beyond normal scale, disable swipe navigation so single-finger dragging pans the page
-    if (window.visualViewport && window.visualViewport.scale > 1.05) {
-      return;
-    }
+    // Ignore multi-touch (pinch-zoom) or if the page is zoomed in
+    if (isMultiTouch) return;
+    if (window.visualViewport && window.visualViewport.scale > 1.05) return;
 
-    touchEndX = e.changedTouches[0].screenX;
-    const dist = touchEndX - touchStartX;
-
-    if (dist < -minSwipeDistance && nextPage) window.location.href = nextPage;
-    if (dist > minSwipeDistance && prevPage) window.location.href = prevPage;
-  }, { passive: true });
-</script>
-
-</body>
-</html>
+    touchEndX = e.changedTouches[0].clientX;
+    touchEndY = e.changedTouches[0].clientY;
